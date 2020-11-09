@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/wave_header"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:mwhCloseColor="#000"
+            app:mwhProgress="1"
+            android:scaleY="1"
+            app:mwhStartColor="#00ff00"
+            app:mwhWaves="MultiWave"
+            tools:ignore="MissingClass">
+        </com.scwang.wave.MultiWaveHeader>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/boxmodel"
+            android:text="@string/login"
+            android:ems="5"
+            android:textAlignment="center"
+            android:textColor="#ff5050"
+            android:textSize="35sp"
+            android:layout_marginLeft="110dp"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_user"
+            android:ems="5"
+            android:layout_marginStart="110dp"
+            android:background="@drawable/boxmodel"
+            android:textAlignment="center"
+            android:textSize="35sp"
+            android:textColor="#ff5050"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="110dp"
+            android:gravity="center_horizontal" />
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/wave_header2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:mwhWaves="MultiWave"
+            app:mwhProgress="1"
+            android:scaleY="-1"
+            app:mwhStartColor="#00ff00"
+            app:mwhCloseColor="#000"
+            android:layout_marginTop="70dp"
+            tools:ignore="DuplicateIds,MissingClass">
+        </com.scwang.wave.MultiWaveHeader>
+
+    </LinearLayout>
+</RelativeLayout>

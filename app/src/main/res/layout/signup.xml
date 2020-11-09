@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:text="@string/text"
+        android:layout_marginTop="125dp"
+        android:textSize="30sp"
+        android:layout_marginStart="25dp"
+        android:textStyle="bold"
+        android:textColor="#660066"
+        android:layout_marginLeft="25dp" />
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:mwhWaves="MultiWave"
+        app:mwhProgress="1"
+        android:scaleY="-1"
+        app:mwhStartColor="#00ff00"
+        app:mwhCloseColor="#000"
+        android:layout_marginTop="670dp"
+        tools:ignore="DuplicateIds,MissingClass">
+    </com.scwang.wave.MultiWaveHeader>
+
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:mwhCloseColor="#000"
+        app:mwhProgress="1"
+        android:scaleY="1"
+        app:mwhStartColor="#00ff00"
+        app:mwhWaves="MultiWave"
+        tools:ignore="MissingClass">
+    </com.scwang.wave.MultiWaveHeader>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/username"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="190dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:hint="@string/enter_username"
+        android:inputType="textPersonName"
+        android:autofillHints="@string/enter_username"
+        android:layout_marginLeft="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/password1"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="250dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:autofillHints="@string/enter_password"
+        android:layout_marginLeft="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/password2"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="310dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:hint="@string/reenter_password"
+        android:inputType="textPassword"
+        android:autofillHints="@string/enter_password"
+        android:layout_marginLeft="50dp" />
+
+    <Button
+        android:id="@+id/signin"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/boxmodel"
+        android:text="@string/create"
+        android:textAlignment="center"
+        android:textColor="#ff5050"
+        android:textSize="19sp"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="50dp" />
+    <Button
+        android:id="@+id/back"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="219dp"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/boxmodel"
+        android:text="@string/back"
+        android:textAlignment="center"
+        android:textColor="#ff5050"
+        android:textSize="19sp"
+        android:layout_marginLeft="219dp"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/address"
+        android:inputType="text"
+        android:backgroundTint="#660066"
+        android:autofillHints="@string/address"
+        android:hint="@string/address"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/phone"
+        android:inputType="phone"
+        android:backgroundTint="#660066"
+        android:autofillHints="@string/enter_phone"
+        android:hint="@string/enter_phone"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="375dp"
+        android:layout_marginLeft="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:ems="15"
+        android:id="@+id/email"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email_id"
+        android:backgroundTint="#660066"
+        android:autofillHints="@string/email_id"
+        android:layout_marginTop="435dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp" />
+</RelativeLayout>

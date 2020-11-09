@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Grocerydeliveryapp</string>
+    <string name="login">SignIn</string>
+    <string name="new_user">SignUp</string>
+    <string name="forgot_pass">Forget your Password</string>
+    <string name="create">Create Account</string>
+    <string name="name">Name</string>
+    <string name="phno">Phone No</string>
+    <string name="email_id"> Enter Email-Id</string>
+    <string name="username"><i>Username</i></string>
+    <string name="password"><i>Password</i></string>
+    <string name="address">Enter Address</string>
+    <string name="tagline">Unadulterated for your health</string>
+    <string name="fruits">Fruits</string>
+    <string name="vegetables">Vegetables</string>
+    <string name="dairy_products">Dairy Products</string>
+    <string name="spices">Spices</string>
+    <string name="staples">Staples</string>
+    <string name="grains">Grains</string>
+    <string name="chocolates">Chocolates</string>
+    <string name="biscuits">Biscuits</string>
+    <string name="snacks">Snacks</string>
+    <string name="beverages">beverages</string>
+    <string name="household">Households</string>
+    <string name="oils">Oils</string>
+    <string name="skincare">Skin-Care</string>
+    <string name="accessories">Accessories</string>
+    <string name="oralcare">Oral-Care</string>
+    <string name="haircare">Hair_care</string>
+    <string name="babycare">Baby-Care</string>
+    <string name="packeditems">Packed-Item</string>
+    <string name="enter_password">Enter Password </string>
+    <string name="enter_username">Enter UserName</string>
+    <string name="reenter_password">Re-Enter Password</string>
+    <string name="enter_phone">Enter phone number</string>
+    <string name="back">Back</string>
+    <string name="kajal">LAKME EYECONIC KAJAL</string>
+    <string name="kajaldesc">Rs.500</string>
+    <string name="cart">Add to Cart</string>
+    <string name="text"><i> We made shopping simple </i></string>
+    <string name="wishlist">Add to Wishlist</string>
+    <string-array name="spicename">
+        <item>Fruits</item>
+        <item>Vegetables</item>
+    </string-array>
+    <string-array name="spicesdescription">
+        <item>Rs.250</item>
+        <item>Rs.150</item>
+    </string-array>
+    <string-array name="itemname">
+        <item>Pampers Diaper</item>
+        <item>Johnson Baby Oil</item>
+    </string-array>
+    <string-array name="itemdescription">
+        <item>Rs.250</item>
+        <item>Rs.150</item>
+    </string-array>
+</resources>

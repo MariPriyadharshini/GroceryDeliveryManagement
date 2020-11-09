@@ -1,0 +1,58 @@
+package com.example.grocerydelivery.Models;
+
+public class Customers {
+    public String name,emailid,address,password;
+    public int age,phno;
+
+    public Customers() {
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmailid() {
+        return emailid;
+    }
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getPhno() {
+        return phno;
+    }
+
+    public void setPhno(int phno) {
+        this.phno = phno;
+    }
+}

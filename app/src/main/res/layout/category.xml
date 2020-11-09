@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:mwhCloseColor="#000"
+        app:mwhProgress="1"
+        android:scaleY="1"
+        app:mwhStartColor="#00ff00"
+        app:mwhWaves="MultiWave"
+        tools:ignore="MissingClass">
+    </com.scwang.wave.MultiWaveHeader>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back"
+        android:text="@string/back"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="350dp"
+        android:textSize="20sp"
+        android:layout_marginLeft="350dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="140dp">
+
+                <ImageView
+                    android:id="@+id/image4"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="40dp"
+                    app:srcCompat="@drawable/vegetables"
+                    android:contentDescription="@string/vegetables"
+                    android:layout_marginLeft="40dp" />
+
+                <TextView
+                    android:id="@+id/Veggies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vegetables"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image5"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="40dp"
+                    app:srcCompat="@drawable/fruits"
+                    android:contentDescription="@string/fruits"
+                    android:layout_marginLeft="40dp" />
+                <TextView
+                    android:id="@+id/fruits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fruits"
+                    android:layout_marginStart="-61dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-61dp" />
+
+                <ImageView
+                    android:id="@+id/image6"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="60dp"
+                    android:contentDescription="@string/spices"
+                    app:srcCompat="@drawable/spices"
+                    android:layout_marginLeft="60dp" />
+
+                <TextView
+                    android:id="@+id/spices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/spices"
+                    android:layout_marginStart="-60dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-60dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/image7"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="40dp"
+                    android:contentDescription="@string/oralcare"
+                    app:srcCompat="@drawable/oralcare"
+                    android:layout_marginLeft="40dp" />
+
+                <TextView
+                    android:id="@+id/oralcare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/oralcare"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image8"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="55dp"
+                    android:contentDescription="@string/dairy_products"
+                    app:srcCompat="@drawable/items"
+                    android:layout_marginLeft="55dp" />
+
+                <TextView
+                    android:id="@+id/dairy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-80dp"
+                    android:layout_marginTop="85dp"
+                    android:text="@string/dairy_products"
+                    android:layout_marginLeft="-80dp" />
+
+                <ImageView
+                    android:id="@+id/image9"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="27dp"
+                    app:srcCompat="@drawable/chocolates"
+                    android:contentDescription="@string/chocolates"
+                    android:layout_marginLeft="27dp" />
+
+                <TextView
+                    android:id="@+id/chocolates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chocolates"
+                    android:layout_marginStart="-75dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="-75dp" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/image18"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginLeft="-80dp"
+                        android:contentDescription="@string/skincare"
+                        app:srcCompat="@drawable/skincare" />
+
+                    <TextView
+                        android:id="@+id/skincare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-70dp"
+                        android:layout_marginLeft="-70dp"
+                        android:layout_marginTop="85dp"
+                        android:text="@string/skincare" />
+
+                    <ImageView
+                        android:id="@+id/image10"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="55dp"
+                        android:layout_marginLeft="55dp"
+                        android:contentDescription="@string/oils"
+                        app:srcCompat="@drawable/babyoil" />
+
+                    <TextView
+                        android:id="@+id/oil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-50dp"
+                        android:layout_marginLeft="-50dp"
+                        android:layout_marginTop="85dp"
+                        android:text="@string/oils" />
+
+                    <ImageView
+                        android:id="@+id/image11"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:contentDescription="@string/accessories"
+                        app:srcCompat="@drawable/accesories" />
+
+                    <TextView
+                        android:id="@+id/accessories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-79dp"
+                        android:layout_marginLeft="-79dp"
+                        android:layout_marginTop="85dp"
+                        android:text="@string/accessories" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="35dp"
+                    app:srcCompat="@drawable/snacks"
+                    android:contentDescription="@string/snacks"
+                    android:layout_marginLeft="35dp" />
+
+                <TextView
+                    android:id="@+id/snacks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/snacks"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="70dp"
+                    app:srcCompat="@drawable/grainsandcereals"
+                    android:contentDescription="@string/grains"
+                    android:layout_marginLeft="70dp" />
+                <TextView
+                    android:id="@+id/grains"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/grains"
+                    android:layout_marginStart="-65dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="-65dp" />
+
+                <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="70dp"
+                    app:srcCompat="@drawable/staple"
+                    android:contentDescription="@string/staples"
+                    android:layout_marginLeft="70dp" />
+
+                <TextView
+                    android:id="@+id/staples"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="85dp"
+                    android:text="@string/staples"
+                    android:layout_marginLeft="-70dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image12"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="35dp"
+                    android:contentDescription="@string/biscuits"
+                    app:srcCompat="@drawable/biscuits"
+                    android:layout_marginLeft="35dp" />
+
+                <TextView
+                    android:id="@+id/biscuits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/biscuits"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image13"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="70dp"
+                    android:contentDescription="@string/beverages"
+                    app:srcCompat="@drawable/beverages"
+                    android:layout_marginLeft="70dp" />
+                <TextView
+                    android:id="@+id/beverages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/beverages"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image14"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="60dp"
+                    android:contentDescription="@string/household"
+                    app:srcCompat="@drawable/household"
+                    android:layout_marginLeft="60dp" />
+
+                <TextView
+                    android:id="@+id/household"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/household"
+                    android:layout_marginStart="-75dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image16"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="35dp"
+                    app:srcCompat="@drawable/hair"
+                    android:contentDescription="@string/haircare"
+                    android:layout_marginLeft="35dp" />
+
+                <TextView
+                    android:id="@+id/hair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/haircare"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image17"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="55dp"
+                    android:contentDescription="@string/babycare"
+                    app:srcCompat="@drawable/baby"
+                    android:layout_marginLeft="55dp" />
+
+                <TextView
+                    android:id="@+id/baby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/babycare"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-70dp" />
+
+                <ImageView
+                    android:id="@+id/image15"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="60dp"
+                    android:contentDescription="@string/packeditems"
+                    app:srcCompat="@drawable/maggie"
+                    android:layout_marginLeft="60dp" />
+                <TextView
+                    android:id="@+id/maggie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/packeditems"
+                    android:layout_marginStart="-70dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="-70dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
