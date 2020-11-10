@@ -2,7 +2,7 @@ package com.example.grocerydelivery.Models;
 
 public class Customers {
     public String name,emailid,address,password;
-    public int age,phno;
+    public String phno;
 
     public Customers() {
 
@@ -40,19 +40,11 @@ public class Customers {
         this.address = address;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public int getPhno() {
+    public String getPhno() {
         return phno;
     }
 
-    public void setPhno(int phno) {
+    public void setPhno(String phno) {
         this.phno = phno;
     }
 }
