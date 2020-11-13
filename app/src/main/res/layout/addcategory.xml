@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/wave_header"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            app:mwhCloseColor="#000"
+            app:mwhProgress="1"
+            android:scaleY="1"
+            app:mwhStartColor="#00ff00"
+            app:mwhWaves="MultiWave"
+            tools:ignore="MissingClass">
+        </com.scwang.wave.MultiWaveHeader>
+
+        <EditText
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:inputType="textPersonName"
+            android:backgroundTint="#660066"
+            android:autofillHints="@string/enter_product"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="50dp"
+            android:hint="@string/enter_category" />
+
+
+        <EditText
+            android:id="@+id/category_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="50dp"
+            android:inputType="number"
+            android:backgroundTint="#660066"
+            android:autofillHints="@string/enter_url"
+            android:hint="@string/enter_url"/>
+
+        <Button
+            android:id="@+id/submit_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/boxmodel"
+            android:layout_marginStart="120dp"
+            android:text="@string/add_category" />
+        <com.scwang.wave.MultiWaveHeader
+            android:id="@+id/wave_header2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:mwhWaves="MultiWave"
+            app:mwhProgress="1"
+            android:scaleY="-1"
+            app:mwhStartColor="#00ff00"
+            app:mwhCloseColor="#000"
+            android:layout_marginTop="30dp"
+            tools:ignore="DuplicateIds,MissingClass">
+        </com.scwang.wave.MultiWaveHeader>
+    </LinearLayout>
+</RelativeLayout>
