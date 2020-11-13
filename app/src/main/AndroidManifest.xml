@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryDelivery">
         <activity android:name=".Category"/>
+        <activity android:name=".AddProduct"/>
+        <activity android:name=".AddCategory"/>
+        <activity android:name=".Admin"/>
         <activity android:name=".Recyclerview"/>
         <activity android:name=".Signin"/>
         <activity android:name=".Signup"/>

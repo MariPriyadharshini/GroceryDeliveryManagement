@@ -23,7 +23,7 @@ public class Signin extends AppCompatActivity {
     EditText password, phone;
     Button signin,back;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
-    DatabaseReference myref = mydb.getReference("Customers");
+    DatabaseReference myref = mydb.getReference("LoginDetails");
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,13 +85,23 @@ public class Signin extends AppCompatActivity {
                     phone.setError(null);
                     phone.setEnabled(false);
                     String pwd = snapshot.child(phn).child("password").getValue(String.class);
-                    if(pwd.equals(pass)) {
-                        Toast.makeText(Signin.this,"Logged Successfully", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(Signin.this,Category.class);
-                        startActivity(intent);
+                    if (phn.equals("9003421214")) {
+                        if (pwd.equals(pass)) {
+                            Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Signin.this, Admin.class);
+                            startActivity(intent);
+                        } else {
+                            password.setError("Wrong Password Admin");
+                        }
                     }
-                    else {
-                        password.setError("Wrong Password");
+                    else{
+                        if (pwd.equals(pass)) {
+                            Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Signin.this, Category.class);
+                            startActivity(intent);
+                        } else {
+                            password.setError("Wrong Password");
+                        }
                     }
                 }
                 else {
