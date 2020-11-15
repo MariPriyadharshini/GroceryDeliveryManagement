@@ -59,9 +59,13 @@
     <string-array name="itemname">
         <item>Pampers Diaper</item>
         <item>Johnson Baby Oil</item>
+        <item>Biscuts</item>
+        <item>Acc</item>
     </string-array>
     <string-array name="itemdescription">
         <item>Rs.250</item>
         <item>Rs.150</item>
+        <item>Rs.21</item>
+        <item>Rs.13</item>
     </string-array>
 </resources>

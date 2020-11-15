@@ -32,7 +32,7 @@ public class AddCategory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.addproduct);
+        setContentView(R.layout.addcategory);
         name = (EditText) findViewById(R.id.category_name);
         url = (EditText) findViewById(R.id.category_url);
         categ = new Category();
@@ -105,10 +105,10 @@ public class AddCategory extends AppCompatActivity {
         }
     }
     public void addCategory() {
-        categ.setCat_name(name.getText().toString().trim());
-        categ.setCat_url(url.getText().toString().trim());
+        categ.setCategory_name(name.getText().toString().trim());
+        categ.setCategory_url(url.getText().toString().trim());
         if(!checkAvailable()) {
-            myref.child(categ.cat_name).setValue(categ).addOnSuccessListener(new OnSuccessListener<Void>() {
+            myref.child(categ.getCategory_name()).setValue(categ).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(AddCategory.this, "Category Inserted Successfully..:)", Toast.LENGTH_LONG).show();

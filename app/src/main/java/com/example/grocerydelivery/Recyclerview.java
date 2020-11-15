@@ -10,7 +10,8 @@ public class Recyclerview extends AppCompatActivity {
     RecyclerView recyclerView;
     String[] s1;
     String[] s2;
-    int[] images = {R.drawable.diaper, R.drawable.oil};
+    String d= "diaper";
+    int[] images = {R.drawable.diaper, R.drawable.oil,R.drawable.biscuits,R.drawable.accesories};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

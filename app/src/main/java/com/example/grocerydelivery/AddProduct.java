@@ -21,12 +21,11 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
-//url is not included
 
 
 public class AddProduct extends AppCompatActivity {
     Button product;
-    EditText name,quantity,desc,count,price,catname,url;
+    EditText name,size,desc,count,price,catname,url;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference().child("Categories");
     DatabaseReference myrefp = mydb.getReference("Products");
@@ -41,7 +40,8 @@ public class AddProduct extends AppCompatActivity {
         desc = (EditText) findViewById(R.id.productdesc);
         price = (EditText) findViewById(R.id.productcost);
         count = (EditText) findViewById(R.id.availablecount);
-        quantity = (EditText) findViewById(R.id.quantity);
+        size = (EditText) findViewById(R.id.size);
+        url = (EditText) findViewById(R.id.producturl);
         prod = new Product();
         product = (Button) findViewById(R.id.submitproduct);
         product.setOnClickListener(new View.OnClickListener() {
@@ -92,9 +92,11 @@ public class AddProduct extends AppCompatActivity {
         prod.setProd_name(name.getText().toString().trim());
         prod.setProd_desc(desc.getText().toString().trim());
         prod.setProd_price(price.getText().toString().trim());
-        prod.setProd_size(quantity.getText().toString().trim());
+        prod.setProd_size(size.getText().toString().trim());
         prod.setProd_avail_count(count.getText().toString().trim());
-        myrefp.child(prod.prod_name).setValue(prod).addOnSuccessListener(new OnSuccessListener<Void>() {
+        prod.setProd_image(url.getText().toString().trim());
+        String id = prod.getProd_name()+prod.getProd_desc()+prod.getProd_size();
+        myrefp.child(id).setValue(prod).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Toast.makeText(AddProduct.this, "Product Inserted Successfully..:)", Toast.LENGTH_LONG).show();

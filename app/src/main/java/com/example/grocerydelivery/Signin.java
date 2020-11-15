@@ -2,6 +2,7 @@ package com.example.grocerydelivery;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,30 +79,32 @@ public class Signin extends AppCompatActivity {
         String phn = phone.getText().toString().trim();
         String pass = password.getText().toString().trim();
         Query chk = myref.orderByChild("phno").equalTo(phn);
+        Log.d("the admin id",phone.getText().toString().trim());
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()) {
                     phone.setError(null);
                     phone.setEnabled(false);
+                    String role = snapshot.child(phn).child("role").getValue(String.class);
                     String pwd = snapshot.child(phn).child("password").getValue(String.class);
-                    if (phn.equals("9003421214")) {
-                        if (pwd.equals(pass)) {
-                            Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Signin.this, Admin.class);
-                            startActivity(intent);
-                        } else {
-                            password.setError("Wrong Password Admin");
-                        }
-                    }
-                    else{
-                        if (pwd.equals(pass)) {
+                    Log.d("The role ",role);
+                    if (pwd.equals(pass)) {
+                        /*Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Signin.this, Category.class);
+                        startActivity(intent);*/
+                        if(role.equals("Customer")) {
                             Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(Signin.this, Category.class);
                             startActivity(intent);
-                        } else {
-                            password.setError("Wrong Password");
                         }
+                        else if(role.equals("Admin")) {
+                            Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Signin.this, Admin.class);
+                            startActivity(intent);
+                        }
+                    } else {
+                        password.setError("Wrong Password");
                     }
                 }
                 else {

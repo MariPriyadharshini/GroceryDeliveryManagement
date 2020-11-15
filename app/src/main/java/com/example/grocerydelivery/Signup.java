@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.grocerydelivery.Models.Customers;
+import com.example.grocerydelivery.Models.LoginDetails;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -22,9 +23,11 @@ import org.jetbrains.annotations.Nullable;
 public class  Signup extends AppCompatActivity {
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference().child("Customers");
+    DatabaseReference myrefl = mydb.getReference().child("LoginDetails");
     EditText name, password, rpassword, phone, email, address;
     Button signin, back;
     Customers c;
+    LoginDetails l;
     int flag = 0;
 
     @Override
@@ -32,6 +35,7 @@ public class  Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
         c = new Customers();
+        l = new LoginDetails();
         signin = findViewById(R.id.signin);
         back = findViewById(R.id.back);
         name = (EditText) findViewById(R.id.username);
@@ -140,19 +144,32 @@ public class  Signup extends AppCompatActivity {
         //int phn = Integer.parseInt(phone.getText().toString().trim());
         c.setPhno(phone.getText().toString().trim());
         c.setPassword(password.getText().toString().trim());
+        l.setPhno(phone.getText().toString().trim());
+        l.setPassword(password.getText().toString().trim());
         Log.d("The User Name is", c.name);
         if (c.password.equals(rpassword.getText().toString().trim())) {
             myref.child(c.phno).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(Signup.this, "Inserted Successfully..:)", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Signup.this, "Inserted Successfully... :)", Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(Signup.this, "Not Inserted... :(", Toast.LENGTH_LONG).show();
+                }
+            });
+            myrefl.child(l.getPhno()).setValue(l).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(Signup.this, "Credential Created Successfully... :)", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Signup.this, Signin.class);
                     startActivity(intent);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Signup.this, "Not Inserted.. :(", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Signup.this, "Sorry Credential wasn't Created... :(", Toast.LENGTH_LONG).show();
                 }
             });
         }

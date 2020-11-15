@@ -42,7 +42,6 @@
             android:ems="15"
             android:layout_marginTop="20dp"
             android:layout_marginStart="50dp"
-            android:inputType="number"
             android:backgroundTint="#660066"
             android:autofillHints="@string/enter_url"
             android:hint="@string/enter_url"/>
@@ -55,17 +54,7 @@
             android:background="@drawable/boxmodel"
             android:layout_marginStart="120dp"
             android:text="@string/add_category" />
-        <com.scwang.wave.MultiWaveHeader
-            android:id="@+id/wave_header2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:mwhWaves="MultiWave"
-            app:mwhProgress="1"
-            android:scaleY="-1"
-            app:mwhStartColor="#00ff00"
-            app:mwhCloseColor="#000"
-            android:layout_marginTop="30dp"
-            tools:ignore="DuplicateIds,MissingClass">
-        </com.scwang.wave.MultiWaveHeader>
+
     </LinearLayout>
+
 </RelativeLayout>

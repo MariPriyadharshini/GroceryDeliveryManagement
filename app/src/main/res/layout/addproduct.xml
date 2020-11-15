@@ -6,128 +6,103 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <com.scwang.wave.MultiWaveHeader
-            android:id="@+id/wave_header"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            app:mwhCloseColor="#000"
-            app:mwhProgress="1"
-            android:scaleY="1"
-            app:mwhStartColor="#00ff00"
-            app:mwhWaves="MultiWave"
-            tools:ignore="MissingClass">
-        </com.scwang.wave.MultiWaveHeader>
-
-        <EditText
-            android:id="@+id/productname"
+        `<LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="textPersonName"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/address"
-            android:layout_marginTop="70dp"
-            android:layout_marginStart="50dp"
-            android:hint="Enter the name of the product" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/productdesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/address"
-            android:inputType="textPersonName"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="50dp"
-            android:hint="Enter the Description of the product" />
-        <EditText
-            android:id="@+id/quantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="textPersonName"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="50dp"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/quantity"
-            android:hint="@string/quantity" />
-        <EditText
-            android:id="@+id/categorynamefk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="textPersonName"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="50dp"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/address"
-            android:hint="@string/enter_category" />
+            <EditText
+                android:id="@+id/productname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/address"
+                android:layout_marginTop="70dp"
+                android:layout_marginStart="50dp"
+                android:hint="Enter the name of the product" />
 
-        <EditText
-            android:id="@+id/productcost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="50dp"
-            android:inputType="number"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/address"
-            android:hint="Enter the price of the product(Rs)"/>
+            <EditText
+                android:id="@+id/productdesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/address"
+                android:inputType="textPersonName"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:hint="Enter the Description of the product" />
+            <EditText
+                android:id="@+id/size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/quantity"
+                android:hint="Enter the size of the product" />
+            <EditText
+                android:id="@+id/categorynamefk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/address"
+                android:hint="@string/enter_category" />
 
-        <EditText
-            android:id="@+id/producturl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="textPersonName"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="50dp"
-            android:backgroundTint="#660066"
-            android:autofillHints="@string/enter_url"
-            android:hint="@string/enter_url" />
+            <EditText
+                android:id="@+id/productcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:inputType="number"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/address"
+                android:hint="Enter the price of the product(Rs)"/>
 
-
-        <EditText
-            android:id="@+id/availablecount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="number"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="50dp"
-            android:hint="Enter the available count of the product"/>
+            <EditText
+                android:id="@+id/producturl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="50dp"
+                android:backgroundTint="#660066"
+                android:autofillHints="@string/enter_url"
+                android:hint="@string/enter_url" />
 
 
-        <Button
-            android:id="@+id/submitproduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/boxmodel"
-            android:layout_marginStart="120dp"
-            android:text="Add Product" />
-        <com.scwang.wave.MultiWaveHeader
-            android:id="@+id/wave_header2"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            app:mwhWaves="MultiWave"
-            app:mwhProgress="1"
-            android:scaleY="-1"
-            app:mwhStartColor="#00ff00"
-            app:mwhCloseColor="#000"
-            android:layout_marginTop="40dp"
-            tools:ignore="DuplicateIds,MissingClass">
-        </com.scwang.wave.MultiWaveHeader>
-
-    </LinearLayout>
+            <EditText
+                android:id="@+id/availablecount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:inputType="number"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="50dp"
+                android:hint="Enter the available count of the product"/>
 
 
+            <Button
+                android:id="@+id/submitproduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boxmodel"
+                android:layout_marginStart="120dp"
+                android:text="Add Product" />
+
+
+        </LinearLayout>
 
 </RelativeLayout>
