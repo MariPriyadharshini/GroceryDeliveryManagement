@@ -27,6 +27,15 @@
             android:layout_marginLeft="100dp" />
 
         <TextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:text="Rs.50"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="100dp" />
+
+        <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,7 +50,7 @@
             android:layout_height="45dp"
             android:textAlignment="center"
             android:textSize="10sp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="90dp"
             android:layout_marginStart="130dp"
             android:text="@string/cart"
             android:layout_marginLeft="130dp"
@@ -51,7 +60,7 @@
             android:id="@+id/wishlist"
             android:layout_width="80dp"
             android:layout_height="45dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="90dp"
             android:textSize="10sp"
             android:textAlignment="center"
             android:layout_marginStart="250dp"
