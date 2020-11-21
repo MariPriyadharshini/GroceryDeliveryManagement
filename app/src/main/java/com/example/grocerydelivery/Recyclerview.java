@@ -27,6 +27,8 @@ public class Recyclerview extends AppCompatActivity {
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Products");
     Context context;
+    Global g;
+    String usrname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class Recyclerview extends AppCompatActivity {
         setContentView(R.layout.recyclerview);
         recyclerView = findViewById(R.id.my_recycler_view);
         clearAll();
+        g = (Global)getApplication();
+        usrname = getIntent().getStringExtra("userName");
         String name = getIntent().getStringExtra("categoryName");
         Query chk = myref.orderByChild("category_name").equalTo(name);
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -51,6 +55,7 @@ public class Recyclerview extends AppCompatActivity {
                         p.setProd_size(schild.child("prod_size").getValue(String.class));
                         String cost = "Rs."+schild.child("prod_price").getValue().toString();
                         p.setProd_price(cost);
+                        p.setKey(schild.child("key").getValue().toString());
                         p.setCategory_name(schild.child("category_name").getValue(String.class));
                         p.setProd_image(schild.child("prod_image").getValue(String.class));
                         Log.d("Name:", p.prod_image);
@@ -58,9 +63,9 @@ public class Recyclerview extends AppCompatActivity {
                         Log.d("Name After adding:", productList.get(i).prod_image);
                         Log.d("*-*-*-*-*--*-**-*-*-*-*", String.valueOf(productList.size()));
                         Toast.makeText(Recyclerview.this,"Inside For loop of ondata",Toast.LENGTH_LONG).show();
-
+                        Log.d("^^^^^^^^^^^^^^^",g.getUser_name());
                     }
-                    recycleViewAdapter = new RecycleViewAdapter(context,productList);
+                    recycleViewAdapter = new RecycleViewAdapter(context,productList,usrname);
                     recyclerView.setAdapter(recycleViewAdapter);
                     recycleViewAdapter.notifyDataSetChanged();
                     recyclerView.setLayoutManager(new LinearLayoutManager(Recyclerview.this));

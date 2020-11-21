@@ -96,6 +96,7 @@ public class AddProduct extends AppCompatActivity {
         prod.setProd_avail_count(count.getText().toString().trim());
         prod.setProd_image(url.getText().toString().trim());
         String id = prod.getProd_name()+prod.getProd_desc()+prod.getProd_size();
+        prod.setKey(id);
         myrefp.child(id).setValue(prod).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {

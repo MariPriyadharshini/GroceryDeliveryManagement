@@ -17,16 +17,6 @@
         tools:ignore="MissingClass">
     </com.scwang.wave.MultiWaveHeader>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:text="@string/back"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="350dp"
-        android:textSize="20sp"
-        android:layout_marginLeft="350dp" />
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
@@ -36,11 +26,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="140dp">
+                android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/cartview"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginStart="40dp"
+                        android:src="@drawable/cart"
+                        android:contentDescription="@string/vegetables"
+                        />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <ImageView
                     android:id="@+id/image4"

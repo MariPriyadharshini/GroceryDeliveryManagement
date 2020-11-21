@@ -1,7 +1,7 @@
 package com.example.grocerydelivery.Models;
 
 public class Product {
-    public String prod_name,prod_desc,prod_size,prod_price,prod_avail_count,category_name,prod_image;
+    public String prod_name,prod_desc,prod_size,prod_price,prod_avail_count,category_name,prod_image,key;
 
     public Product() {
     }
@@ -60,5 +60,13 @@ public class Product {
 
     public void setProd_image(String prod_image) {
         this.prod_image = prod_image;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

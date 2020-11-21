@@ -1,7 +1,7 @@
 package com.example.grocerydelivery.Models;
 
 public class Category {
-    public String category_name,category_url;
+    public String category_name,category_url,key;
 
     public Category() {
     }
@@ -20,5 +20,13 @@ public class Category {
 
     public String getCategory_name() {
         return category_name;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

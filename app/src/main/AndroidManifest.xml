@@ -14,6 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".Global"
         android:theme="@style/Theme.GroceryDelivery">
         <activity android:name=".Category"/>
         <activity android:name=".AddProduct"/>
@@ -22,6 +23,7 @@
         <activity android:name=".Recyclerview"/>
         <activity android:name=".Signin"/>
         <activity android:name=".Signup"/>
+        <activity android:name=".CartRecycleView"/>
         <activity android:name=".MainActivity"
             tools:ignore="Instantiatable" >
             <intent-filter>

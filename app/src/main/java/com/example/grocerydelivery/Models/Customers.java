@@ -1,7 +1,7 @@
 package com.example.grocerydelivery.Models;
 
 public class Customers {
-    public String name,emailid,address,password;
+    public String name,emailid,address,password,key;
     public String phno;
 
     public Customers() {
@@ -46,5 +46,13 @@ public class Customers {
 
     public void setPhno(String phno) {
         this.phno = phno;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

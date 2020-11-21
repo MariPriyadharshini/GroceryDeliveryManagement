@@ -10,22 +10,35 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.grocerydelivery.Models.Cart;
 import com.example.grocerydelivery.Models.Product;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
     Context context;
     ArrayList<Product> productList;
+    String usrname;
+    FirebaseDatabase mydb = FirebaseDatabase.getInstance();
+    DatabaseReference myref = mydb.getReference("Cart");
+    DatabaseReference rref = mydb.getReference("Wishlist");
+    Cart c;
+    Global g;
 
-    public RecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList){
+    public RecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,String usrname){
         this.context = ct;
         this.productList = productArrayList;
+        this.usrname = usrname;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -70,17 +83,43 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             holder.cart.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, Signin.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
+                    c = new Cart();
+                    c.setUser_name(usrname);
+                    c.setP(productList.get(position));
+                    String key = c.getUser_name()+productList.get(position).getKey();
+                    c.setCart_key(key);
+                    myref.child(c.cart_key).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("**********","Inserted");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("*********","Fails");
+                        }
+                    });
                 }
             });
             holder.wishlist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, Signup.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
+                    c = new Cart();
+                    c.setUser_name(usrname);
+                    c.setP(productList.get(position));
+                    String key = c.getUser_name()+productList.get(position).getKey();
+                    c.setCart_key(key);
+                    rref.child(key).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("**********","Inserted");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("*********","Fails");
+                        }
+                    });
                 }
             });
         }
