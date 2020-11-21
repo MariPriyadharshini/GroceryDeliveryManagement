@@ -66,7 +66,7 @@ public class CartRecycleView extends AppCompatActivity {
                         productList.add(p);
                         cartlist.add(c);
                     }
-                    recycleViewAdapter = new CartRecycleViewAdapter(context,productList,cartlist);
+                    recycleViewAdapter = new CartRecycleViewAdapter(context,productList,cartlist,phn);
                     recyclerView.setAdapter(recycleViewAdapter);
                     recycleViewAdapter.notifyDataSetChanged();
                     recyclerView.setLayoutManager(new LinearLayoutManager(CartRecycleView.this));

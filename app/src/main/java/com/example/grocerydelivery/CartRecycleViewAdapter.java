@@ -30,14 +30,16 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
     Context context;
     ArrayList<Product> productList;
     ArrayList<Cart> cartlist;
+    String usrname;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Cart");
     DatabaseReference rref = mydb.getReference("Products");
 
-    public CartRecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,ArrayList<Cart> cartArrayList){
+    public CartRecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,ArrayList<Cart> cartArrayList,String phn){
         this.context = ct;
         this.productList = productArrayList;
         this.cartlist = cartArrayList;
+        this.usrname = phn;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -79,12 +81,16 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
             holder.price.setText(productList.get(position).getProd_price());
             holder.imageView.setImageResource(R.drawable.beverages);
             String cartKey= cartlist.get(position).getCart_key();
+            String prodKey = productList.get(position).getKey();
             //Glide.with(context).load(productList.get(position).getProd_image()).into(holder.imageView);
             holder.buy.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, Signin.class);
+                    Intent intent = new Intent(context, Purchase.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("cartKey",cartKey);
+                    intent.putExtra("prodKey",prodKey);
+                    intent.putExtra("userName",usrname);
                     context.startActivity(intent);
                 }
             });
