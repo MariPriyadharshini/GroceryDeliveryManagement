@@ -7,20 +7,19 @@
     android:layout_marginBottom="10dp"
     android:layout_marginRight="5dp"
     android:layout_marginLeft="5dp">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp">
 
         <ImageView
-            android:id="@+id/imgid"
+            android:id="@+id/wishlistimage"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/kajal" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/wishlistname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -28,7 +27,7 @@
             android:layout_marginLeft="100dp" />
 
         <TextView
-            android:id="@+id/cost"
+            android:id="@+id/wishlistcost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -37,7 +36,7 @@
             android:layout_marginLeft="100dp" />
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/wishlistdescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="100dp"
@@ -46,28 +45,16 @@
             android:layout_marginLeft="100dp" />
 
         <Button
-            android:id="@+id/cart"
+            android:id="@+id/removewishlist"
             android:layout_width="80dp"
             android:layout_height="45dp"
             android:textAlignment="center"
             android:textSize="10sp"
             android:layout_marginTop="90dp"
-            android:layout_marginStart="130dp"
-            android:text="@string/cart"
+            android:layout_marginStart="170dp"
+            android:text="Remove from Wishlist"
             android:layout_marginLeft="130dp"
             android:gravity="center_horizontal" />
-
-        <Button
-            android:id="@+id/wishlist"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="90dp"
-            android:textSize="10sp"
-            android:textAlignment="center"
-            android:layout_marginStart="250dp"
-            android:text="@string/wishlist"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="250dp" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.grocerydelivery.Models.Cart;
 import com.example.grocerydelivery.Models.Product;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,15 +21,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Recyclerview extends AppCompatActivity {
+public class CartRecycleView extends AppCompatActivity {
     RecyclerView recyclerView;
-    RecycleViewAdapter recycleViewAdapter;
+    CartRecycleViewAdapter recycleViewAdapter;
     ArrayList<Product> productList;
+    ArrayList<Cart> cartlist;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
-    DatabaseReference myref = mydb.getReference("Products");
+    DatabaseReference myref = mydb.getReference("Cart");
+   // DatabaseReference rref = mydb.getReference("Products");
     Context context;
     Global g;
-    String usrname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +39,9 @@ public class Recyclerview extends AppCompatActivity {
         setContentView(R.layout.recyclerview);
         recyclerView = findViewById(R.id.my_recycler_view);
         clearAll();
-        g = (Global)getApplication();
-        usrname = getIntent().getStringExtra("userName");
-        String name = getIntent().getStringExtra("categoryName");
-        Query chk = myref.orderByChild("category_name").equalTo(name);
+        String phn = getIntent().getStringExtra("userName");
+        Log.d("$$$$$$$$$$$$$$44",phn);
+        Query chk = myref.orderByChild("user_name").equalTo(phn);
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,35 +50,34 @@ public class Recyclerview extends AppCompatActivity {
                     //productList =  new ArrayList<Product>();
                     for (DataSnapshot schild : snapshot.getChildren()) {
                         Product p = new Product();
-                        p.setProd_name(schild.child("prod_name").getValue(String.class));
-                        p.setProd_desc(schild.child("prod_desc").getValue(String.class));
-                        p.setProd_avail_count(schild.child("prod_avail_count").getValue(String.class));
-                        p.setProd_size(schild.child("prod_size").getValue(String.class));
-                        String cost = "Rs."+schild.child("prod_price").getValue().toString();
+                        Cart c = new Cart();
+                        c.setUser_name(phn);
+                        p.setProd_name(schild.child("p").child("prod_name").getValue(String.class));
+                        p.setProd_desc(schild.child("p").child("prod_desc").getValue(String.class));
+                        p.setProd_avail_count(schild.child("p").child("prod_avail_count").getValue(String.class));
+                        p.setProd_size(schild.child("p").child("prod_size").getValue(String.class));
+                        String cost = "Rs." + schild.child("p").child("prod_price").getValue().toString();
                         p.setProd_price(cost);
-                        p.setKey(schild.child("key").getValue().toString());
-                        p.setCategory_name(schild.child("category_name").getValue(String.class));
-                        p.setProd_image(schild.child("prod_image").getValue(String.class));
-                        Log.d("Name:", p.prod_image);
+                        p.setKey(schild.child("p").child("key").getValue().toString());
+                        p.setCategory_name(schild.child("p").child("category_name").getValue(String.class));
+                        p.setProd_image(schild.child("p").child("prod_image").getValue(String.class));
+                        c.setP(p);
+                        c.setCart_key(schild.child("cart_key").getValue(String.class));
                         productList.add(p);
-                        Log.d("Name After adding:", productList.get(i).prod_image);
-                        Log.d("*-*-*-*-*--*-**-*-*-*-*", String.valueOf(productList.size()));
-                        Toast.makeText(Recyclerview.this,"Inside For loop of ondata",Toast.LENGTH_LONG).show();
-                        Log.d("^^^^^^^^^^^^^^^",g.getUser_name());
+                        cartlist.add(c);
                     }
-                    recycleViewAdapter = new RecycleViewAdapter(context,productList,usrname);
+                    recycleViewAdapter = new CartRecycleViewAdapter(context,productList,cartlist);
                     recyclerView.setAdapter(recycleViewAdapter);
                     recycleViewAdapter.notifyDataSetChanged();
-                    recyclerView.setLayoutManager(new LinearLayoutManager(Recyclerview.this));
+                    recyclerView.setLayoutManager(new LinearLayoutManager(CartRecycleView.this));
                 }
-                else{
-                    Log.d("No DATA found","*************as*************");
+                else {
+                    Log.d("No DATA found", "*************as*************");
                 }
-                Toast.makeText(Recyclerview.this,"Out of For loop",Toast.LENGTH_LONG).show();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Recyclerview.this, "Error 404",Toast.LENGTH_LONG).show();
+                Toast.makeText(CartRecycleView.this, "Error 404",Toast.LENGTH_LONG).show();
             }
         });
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -87,12 +87,14 @@ public class Recyclerview extends AppCompatActivity {
 
     public void clearAll(){
         if(productList!=null){
+            cartlist.clear();
             productList.clear();
             if(recycleViewAdapter!=null){
                 recycleViewAdapter.notifyDataSetChanged();
             }
         }
         productList = new ArrayList<>();
+        cartlist = new ArrayList<>();
     }
 }
 

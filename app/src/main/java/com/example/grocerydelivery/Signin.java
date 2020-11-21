@@ -25,6 +25,7 @@ public class Signin extends AppCompatActivity {
     Button signin,back;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("LoginDetails");
+    Global g;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,8 +77,11 @@ public class Signin extends AppCompatActivity {
     }
 
     public void checkUSer() {
+        g = (Global) getApplication();
         String phn = phone.getText().toString().trim();
         String pass = password.getText().toString().trim();
+        g.setUser_name(phn);
+        Log.d("+++++++++++++++",g.user_name);
         Query chk = myref.orderByChild("phno").equalTo(phn);
         Log.d("the admin id",phone.getText().toString().trim());
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,6 +100,7 @@ public class Signin extends AppCompatActivity {
                         if(role.equals("Customer")) {
                             Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(Signin.this, Category.class);
+                            intent.putExtra("userName",phn);
                             startActivity(intent);
                         }
                         else if(role.equals("Admin")) {

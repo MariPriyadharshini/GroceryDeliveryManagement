@@ -4,23 +4,39 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.Nullable;
 
 public class Category extends AppCompatActivity {
-    ImageView dairy,baby,fruits,haircare,packeditem,biscuits,household,grains,staples,accesories,beverages,chocolates,hair,items ,maggie,oil,oralcare,snacks,spices,staple,tissue,vegetables,skincare;
+    ImageView cart,dairy,baby,fruits,haircare,packeditem,biscuits,household,grains,staples,accesories,beverages,chocolates,hair,items ,maggie,oil,oralcare,snacks,spices,staple,tissue,vegetables,skincare;
+    String usrname;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.category);
+        usrname = getIntent().getStringExtra("userName");
+
+        cart = findViewById(R.id.cartview);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Category.this, CartRecycleView.class);
+                intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
+
         vegetables = findViewById(R.id.image4);
         vegetables.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Vegetables");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -30,6 +46,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Fruits");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -39,6 +56,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Spices");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -48,6 +66,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","OralCare");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -57,6 +76,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","DairyProduct");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -66,6 +86,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Chocolates");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -75,6 +96,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","SkinCare");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -84,6 +106,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Accessories");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -93,6 +116,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Oil");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -102,6 +126,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Snacks");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -111,6 +136,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Grains");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -120,6 +146,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Staples");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -129,6 +156,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Biscuits");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -138,6 +166,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","Beverages");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -147,6 +176,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","HouseHoldsItems");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -156,6 +186,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","HairCare");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -165,6 +196,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","BabyCare");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
@@ -174,6 +206,7 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, Recyclerview.class);
                 intent.putExtra("categoryName","PackedItems");
+                intent.putExtra("userName",usrname);
                 startActivity(intent);
             }
         });
