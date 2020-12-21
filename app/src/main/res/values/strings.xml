@@ -33,7 +33,7 @@
     <string name="enter_username">Enter Phone Number</string>
     <string name="reenter_password">Re-Enter Password</string>
     <string name="enter_phone">Enter phone number</string>
-    <string name="back">Back</string>
+    <string name="back"><u>Back</u></string>
     <string name="enter_product">Enter product name</string>
     <string name="enter_category">Enter the category</string>
     <string name="add">Add Product</string>
