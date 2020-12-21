@@ -2,7 +2,7 @@ package com.example.grocerydelivery.Models;
 
 public class Cart {
     public String user_name,cart_key;
-    public Product p;
+    public String product_key;
 
     public Cart() {
     }
@@ -15,13 +15,13 @@ public class Cart {
         this.user_name = user_name;
     }
 
-    public Product getP() {
-        return p;
+    public String getP() {
+        return product_key;
     }
 
 
-    public void setP(Product p) {
-        this.p = p;
+    public void setP(String p) {
+        this.product_key = p;
     }
 
     public String getCart_key() {

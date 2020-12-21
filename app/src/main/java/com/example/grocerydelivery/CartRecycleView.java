@@ -28,7 +28,7 @@ public class CartRecycleView extends AppCompatActivity {
     ArrayList<Cart> cartlist;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Cart");
-   // DatabaseReference rref = mydb.getReference("Products");
+    DatabaseReference pref = mydb.getReference("Products");
     Context context;
     Global g;
 
@@ -52,27 +52,41 @@ public class CartRecycleView extends AppCompatActivity {
                         Product p = new Product();
                         Cart c = new Cart();
                         c.setUser_name(phn);
-                        p.setProd_name(schild.child("p").child("prod_name").getValue(String.class));
-                        p.setProd_desc(schild.child("p").child("prod_desc").getValue(String.class));
-                        p.setProd_avail_count(schild.child("p").child("prod_avail_count").getValue(String.class));
-                        p.setProd_size(schild.child("p").child("prod_size").getValue(String.class));
-                        String cost = "Rs." + schild.child("p").child("prod_price").getValue().toString();
-                        p.setProd_price(cost);
-                        p.setKey(schild.child("p").child("key").getValue().toString());
-                        p.setCategory_name(schild.child("p").child("category_name").getValue(String.class));
-                        p.setProd_image(schild.child("p").child("prod_image").getValue(String.class));
-                        c.setP(p);
+                        c.setP(schild.child("product_key").getValue().toString());
                         c.setCart_key(schild.child("cart_key").getValue(String.class));
-                        productList.add(p);
                         cartlist.add(c);
+                        Query pchk = pref.orderByChild("key").equalTo(c.product_key);
+                        pchk.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.exists()) {
+                                    for (DataSnapshot pchild : snapshot.getChildren()) {
+                                        Log.d("Product found", "*************as*************");
+                                        p.setProd_name(pchild.child("prod_name").getValue(String.class));
+                                        p.setProd_desc(pchild.child("prod_desc").getValue(String.class));
+                                        p.setProd_avail_count(pchild.child("prod_avail_count").getValue(String.class));
+                                        p.setProd_size(pchild.child("prod_size").getValue(String.class));
+                                        String cost = "Rs." + pchild.child("prod_price").getValue().toString();
+                                        p.setProd_price(cost);
+                                        Log.d("No DATA found", cost);
+                                        p.setKey(pchild.child("key").getValue().toString());
+                                        p.setCategory_name(pchild.child("category_name").getValue(String.class));
+                                        p.setProd_image(pchild.child("prod_image").getValue(String.class));
+                                        productList.add(p);
+                                    }
+                                    recycleViewAdapter = new CartRecycleViewAdapter(context, productList, cartlist, phn);
+                                    recyclerView.setAdapter(recycleViewAdapter);
+                                    recycleViewAdapter.notifyDataSetChanged();
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(CartRecycleView.this));
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(CartRecycleView.this, "Error 404:No Product under cart",Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
-                    recycleViewAdapter = new CartRecycleViewAdapter(context,productList,cartlist,phn);
-                    recyclerView.setAdapter(recycleViewAdapter);
-                    recycleViewAdapter.notifyDataSetChanged();
-                    recyclerView.setLayoutManager(new LinearLayoutManager(CartRecycleView.this));
-                }
-                else {
-                    Log.d("No DATA found", "*************as*************");
                 }
             }
             @Override

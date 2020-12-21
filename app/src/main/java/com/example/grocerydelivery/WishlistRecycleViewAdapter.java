@@ -29,31 +29,32 @@ import java.util.ArrayList;
 
 public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRecycleViewAdapter.ViewHolder> {
     Context context;
+    String username;
     ArrayList<Product> productList;
     ArrayList<Cart> wishlist;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Wishlist");
     DatabaseReference rref = mydb.getReference("Products");
 
-    public WishlistRecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,ArrayList<Cart> wishlistArray){
+    public WishlistRecycleViewAdapter(Context ct, ArrayList<Product> productArrayList, ArrayList<Cart> wishlistArray, String phn){
         this.context = ct;
         this.productList = productArrayList;
         this.wishlist = wishlistArray;
+        this.username = phn;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name,description,price;
         ImageView imageView;
-        Button buy,remove;
+        Button remove;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
-            name = itemView.findViewById(R.id.cartname);
-            description = itemView.findViewById(R.id.cartdescription);
-            price = itemView.findViewById(R.id.cartcost);
-            imageView = itemView.findViewById(R.id.cartimage);
-            buy = itemView.findViewById(R.id.buynow);
-            remove = itemView.findViewById(R.id.remove);
+            name = itemView.findViewById(R.id.wishlistname);
+            description = itemView.findViewById(R.id.wishlistdescription);
+            price = itemView.findViewById(R.id.wishlistcost);
+            imageView = itemView.findViewById(R.id.wishlistimage);
+            remove = itemView.findViewById(R.id.removewishlist);
         }
     }
 
@@ -85,21 +86,6 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
                 @Override
                 public void onClick(View v) {
                     Log.d("#############333",wishlist.get(position).cart_key);
-                    /*Query chk = myref.orderByChild("cart_key").equalTo(cartKey);
-                    chk.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists())
-                                snapshot.getRef().setValue(null);
-                            else
-                                Log.d("+++++++++++++++++","Error No Data");
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });*/
                     myref.child(cartKey).removeValue();
                 }
             });

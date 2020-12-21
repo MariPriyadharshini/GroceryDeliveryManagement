@@ -81,7 +81,7 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
             holder.price.setText(productList.get(position).getProd_price());
             holder.imageView.setImageResource(R.drawable.beverages);
             String cartKey= cartlist.get(position).getCart_key();
-            String prodKey = productList.get(position).getKey();
+            String prodKey = cartlist.get(position).getP();
             //Glide.with(context).load(productList.get(position).getProd_image()).into(holder.imageView);
             holder.buy.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -98,21 +98,6 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
                 @Override
                 public void onClick(View v) {
                     Log.d("#############333",cartlist.get(position).cart_key);
-                    /*Query chk = myref.orderByChild("cart_key").equalTo(cartKey);
-                    chk.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(snapshot.exists())
-                                snapshot.getRef().setValue(null);
-                            else
-                                Log.d("+++++++++++++++++","Error No Data");
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });*/
                     myref.child(cartKey).removeValue();
                 }
             });

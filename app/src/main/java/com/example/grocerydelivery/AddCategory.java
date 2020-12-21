@@ -116,6 +116,8 @@ public class AddCategory extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
+                    DialogBox dialog = new DialogBox();
+                    dialog.show(getSupportFragmentManager(),"DialogError");
                     Toast.makeText(AddCategory.this, "Category Not Inserted..:(", Toast.LENGTH_LONG).show();
                 }
             });

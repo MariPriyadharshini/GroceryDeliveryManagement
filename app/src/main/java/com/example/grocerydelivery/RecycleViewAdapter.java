@@ -85,7 +85,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 public void onClick(View v) {
                     c = new Cart();
                     c.setUser_name(usrname);
-                    c.setP(productList.get(position));
+                    c.setP(productList.get(position).getKey());
                     String key = c.getUser_name()+productList.get(position).getKey();
                     c.setCart_key(key);
                     myref.child(c.cart_key).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -106,7 +106,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                 public void onClick(View v) {
                     c = new Cart();
                     c.setUser_name(usrname);
-                    c.setP(productList.get(position));
+                    c.setP(productList.get(position).getKey());
                     String key = c.getUser_name()+productList.get(position).getKey();
                     c.setCart_key(key);
                     rref.child(key).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
