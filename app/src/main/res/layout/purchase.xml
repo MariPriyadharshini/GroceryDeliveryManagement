@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:text="@string/text"
+        android:layout_marginTop="80dp"
+        android:textSize="30sp"
+        android:layout_marginStart="25dp"
+        android:textStyle="bold"
+        android:textColor="#660066"
+        android:layout_marginLeft="25dp" />
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header2"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:mwhWaves="MultiWave"
+        app:mwhProgress="1"
+        android:scaleY="-1"
+        app:mwhStartColor="#00ff00"
+        app:mwhCloseColor="#000"
+        android:layout_marginTop="670dp"
+        tools:ignore="DuplicateIds,MissingClass">
+    </com.scwang.wave.MultiWaveHeader>
+
+
+    <com.scwang.wave.MultiWaveHeader
+        android:id="@+id/wave_header"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        app:mwhCloseColor="#000"
+        app:mwhProgress="1"
+        android:scaleY="1"
+        app:mwhStartColor="#00ff00"
+        app:mwhWaves="MultiWave"
+        tools:ignore="MissingClass">
+    </com.scwang.wave.MultiWaveHeader>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/paddr"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="145dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:hint="Enter the Address of Delivery"
+        android:inputType="textPersonName"
+        android:autofillHints="Delivery Address"
+        android:layout_marginLeft="50dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/pquant"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="225dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:hint="Enter the Quantity you need"
+        android:inputType="textPersonName"
+        android:autofillHints="Quantity"
+        android:layout_marginLeft="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/pproduct"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="325dp"
+        android:maxLines="1"
+        android:backgroundTint="#660066"
+        android:autofillHints="Puchased Product"
+        android:layout_marginLeft="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:id="@+id/pcost"
+        android:inputType="phone"
+        android:backgroundTint="#660066"
+        android:autofillHints="Cost Of the pruchased item"
+        android:ems="15"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp" />
+
+
+    <Button
+        android:id="@+id/place"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="510dp"
+        android:background="@drawable/boxmodel"
+        android:text="Place Order"
+        android:textAlignment="center"
+        android:textColor="#ff5050"
+        android:textSize="19sp"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="50dp" />
+
+    <Button
+        android:id="@+id/pback"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="219dp"
+        android:layout_marginTop="510dp"
+        android:background="@drawable/boxmodel"
+        android:text="@string/back"
+        android:textAlignment="center"
+        android:textColor="#ff5050"
+        android:textSize="19sp"
+        android:layout_marginLeft="219dp"
+        android:gravity="center_horizontal" />
+
+</RelativeLayout>
