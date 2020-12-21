@@ -12,8 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.Nullable;
 
 public class Category extends AppCompatActivity {
-    ImageView cart,dairy,baby,fruits,haircare,packeditem,biscuits,household,grains,staples,accesories,beverages,chocolates,hair,items ,maggie,oil,oralcare,snacks,spices,staple,tissue,vegetables,skincare;
+    ImageView wishlist,cart,dairy,baby,fruits,haircare,packeditem,biscuits,household,grains,staples,accesories,beverages,chocolates,hair,items ,maggie,oil,oralcare,snacks,spices,staple,tissue,vegetables,skincare;
     String usrname;
+    TextView back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +28,25 @@ public class Category extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Category.this, CartRecycleView.class);
                 intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
+
+        wishlist = findViewById(R.id.wishlist);
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Category.this, WishlistRecycleView.class);
+                intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
+
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Category.this, Signin.class);
                 startActivity(intent);
             }
         });
