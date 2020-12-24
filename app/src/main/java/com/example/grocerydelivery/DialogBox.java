@@ -10,11 +10,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class DialogBox extends AppCompatDialogFragment {
+    public String msg;
+    public DialogBox(String text) {
+        this.msg = text;
+    }
     @NonNull
     @Override
     public android.app.Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("ALert").setMessage("Error").setPositiveButton("ok", new DialogInterface.OnClickListener() {
+        builder.setTitle("").setMessage(msg).setPositiveButton("ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }

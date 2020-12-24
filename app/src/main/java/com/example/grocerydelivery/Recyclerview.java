@@ -62,7 +62,7 @@ public class Recyclerview extends AppCompatActivity {
                         productList.add(p);
                         Log.d("Name After adding:", productList.get(i).prod_image);
                         Log.d("*-*-*-*-*--*-**-*-*-*-*", String.valueOf(productList.size()));
-                        Toast.makeText(Recyclerview.this,"Inside For loop of ondata",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(Recyclerview.this,"Inside For loop of ondata",Toast.LENGTH_LONG).show();
                         Log.d("^^^^^^^^^^^^^^^",g.getUser_name());
                     }
                     recycleViewAdapter = new RecycleViewAdapter(context,productList,usrname);
@@ -73,7 +73,7 @@ public class Recyclerview extends AppCompatActivity {
                 else{
                     Log.d("No DATA found","*************as*************");
                 }
-                Toast.makeText(Recyclerview.this,"Out of For loop",Toast.LENGTH_LONG).show();
+                //Toast.makeText(Recyclerview.this,"Out of For loop",Toast.LENGTH_LONG).show();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

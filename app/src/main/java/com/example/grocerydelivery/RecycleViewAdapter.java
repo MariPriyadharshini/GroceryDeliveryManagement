@@ -99,6 +99,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                             Log.d("*********","Fails");
                         }
                     });
+                    Toast.makeText(context,"Added to Cart",Toast.LENGTH_LONG).show();
                 }
             });
             holder.wishlist.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +121,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
                             Log.d("*********","Fails");
                         }
                     });
+                    Toast.makeText(context,"Added to Wishlist",Toast.LENGTH_LONG).show();
                 }
             });
         }

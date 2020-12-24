@@ -146,12 +146,18 @@ public class Purchase extends AppCompatActivity {
                             else
                                 schild.getRef().child("prod_avail_count").setValue(String.valueOf(prod_count));
                         }
+                        else {
+                            DialogBox d = new DialogBox("Ou tof Stock");
+                            d.show(getSupportFragmentManager(),"outOfStock");
+                        }
                     }
                     order.setStatus(null);
 
                     myref.child(order.order_key).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
+                            DialogBox d = new DialogBox("Order Placed Successfully");
+                            d.show(getSupportFragmentManager(),"Placed");
                             Toast.makeText(Purchase.this,"Order Placed Sucessfully",Toast.LENGTH_LONG).show();
                         }
                     });

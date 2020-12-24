@@ -26,6 +26,7 @@
         <activity android:name=".CartRecycleView"/>
         <activity android:name=".WishlistRecycleView"/>
         <activity android:name=".Purchase"/>
+        <activity android:name=".Preferred"/>
         <activity android:name=".MainActivity"
             tools:ignore="Instantiatable" >
             <intent-filter>

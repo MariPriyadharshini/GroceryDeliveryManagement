@@ -146,6 +146,7 @@ public class  Signup extends AppCompatActivity {
         c.setPassword(password.getText().toString().trim());
         l.setPhno(phone.getText().toString().trim());
         l.setPassword(password.getText().toString().trim());
+        l.setRole("Customer");
         Log.d("The User Name is", c.name);
         if (c.password.equals(rpassword.getText().toString().trim())) {
             myref.child(c.phno).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -163,8 +164,7 @@ public class  Signup extends AppCompatActivity {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(Signup.this, "Credential Created Successfully... :)", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(Signup.this, Signin.class);
-                    startActivity(intent);
+
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -172,6 +172,9 @@ public class  Signup extends AppCompatActivity {
                     Toast.makeText(Signup.this, "Sorry Credential wasn't Created... :(", Toast.LENGTH_LONG).show();
                 }
             });
+            Intent intent = new Intent(Signup.this, Preferred.class);
+            intent.putExtra("userName",c.phno);
+            startActivity(intent);
         }
         else {
             rpassword.setError("Field can't empty or Correct your password");

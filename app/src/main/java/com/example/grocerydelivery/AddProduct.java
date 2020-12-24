@@ -105,7 +105,7 @@ public class AddProduct extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                DialogBox dialog = new DialogBox();
+                DialogBox dialog = new DialogBox("error");
                 dialog.show(getSupportFragmentManager(),"DialogError");
                 Toast.makeText(AddProduct.this, "Product Not Inserted..:(",Toast.LENGTH_LONG).show();
             }
