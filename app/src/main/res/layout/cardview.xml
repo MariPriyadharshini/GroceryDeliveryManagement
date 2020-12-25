@@ -47,8 +47,8 @@
 
         <Button
             android:id="@+id/cart"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="10sp"
             android:layout_marginTop="90dp"
@@ -59,8 +59,8 @@
 
         <Button
             android:id="@+id/wishlist"
-            android:layout_width="80dp"
-            android:layout_height="45dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
             android:textSize="10sp"
             android:textAlignment="center"

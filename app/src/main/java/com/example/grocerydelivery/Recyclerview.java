@@ -65,7 +65,7 @@ public class Recyclerview extends AppCompatActivity {
                         //Toast.makeText(Recyclerview.this,"Inside For loop of ondata",Toast.LENGTH_LONG).show();
                         Log.d("^^^^^^^^^^^^^^^",g.getUser_name());
                     }
-                    recycleViewAdapter = new RecycleViewAdapter(context,productList,usrname);
+                    recycleViewAdapter = new RecycleViewAdapter(context,productList,usrname,name);
                     recyclerView.setAdapter(recycleViewAdapter);
                     recycleViewAdapter.notifyDataSetChanged();
                     recyclerView.setLayoutManager(new LinearLayoutManager(Recyclerview.this));

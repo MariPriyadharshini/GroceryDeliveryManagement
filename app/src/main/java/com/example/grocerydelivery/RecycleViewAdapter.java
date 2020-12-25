@@ -28,17 +28,18 @@ import java.util.ArrayList;
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.ViewHolder> {
     Context context;
     ArrayList<Product> productList;
-    String usrname;
+    String usrname,catname;
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Cart");
     DatabaseReference rref = mydb.getReference("Wishlist");
     Cart c;
     Global g;
 
-    public RecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,String usrname){
+    public RecycleViewAdapter(Context ct,  ArrayList<Product> productArrayList,String usrname,String name){
         this.context = ct;
         this.productList = productArrayList;
         this.usrname = usrname;
+        this.catname = name;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -78,7 +79,61 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             String desc = productList.get(position).getProd_desc()+" "+productList.get(position).getProd_size();
             holder.description.setText(desc);
             holder.price.setText(productList.get(position).getProd_price());
-            holder.imageView.setImageResource(R.drawable.beverages);
+            //holder.imageView.setImageResource(R.drawable.beverages);
+            if(catname.equals("Vegetables")) {
+                holder.imageView.setImageResource(R.drawable.vegetables);
+            }
+            else if(catname.equals("Accessories")) {
+                holder.imageView.setImageResource(R.drawable.accesories);
+            }
+            else if(catname.equals("BabyCare")) {
+                holder.imageView.setImageResource(R.drawable.baby);
+            }
+            else if(catname.equals("Beverages")) {
+                holder.imageView.setImageResource(R.drawable.beverages);
+            }
+            else if(catname.equals("Biscuits")) {
+                holder.imageView.setImageResource(R.drawable.biscuits);
+            }
+            else if(catname.equals("Chocolates")) {
+                holder.imageView.setImageResource(R.drawable.chocolates);
+            }
+            else if(catname.equals("DairyProduct")) {
+                holder.imageView.setImageResource(R.drawable.items);
+            }
+            else if(catname.equals("Fruits")) {
+                holder.imageView.setImageResource(R.drawable.fruits);
+            }
+            else if(catname.equals("Grains")) {
+                holder.imageView.setImageResource(R.drawable.grainsandcereals);
+            }
+            else if(catname.equals("HairCare")) {
+                holder.imageView.setImageResource(R.drawable.hair);
+            }
+            else if(catname.equals("HouseHold")) {
+                holder.imageView.setImageResource(R.drawable.household);
+            }
+            else if(catname.equals("Oils")) {
+                holder.imageView.setImageResource(R.drawable.oil);
+            }
+            else if(catname.equals("OralCare")) {
+                holder.imageView.setImageResource(R.drawable.oralcare);
+            }
+            else if(catname.equals("PackedItems")) {
+                holder.imageView.setImageResource(R.drawable.maggie);
+            }
+            else if(catname.equals("SkinCare")) {
+                holder.imageView.setImageResource(R.drawable.skincare);
+            }
+            else if(catname.equals("Snacks")) {
+                holder.imageView.setImageResource(R.drawable.snacks);
+            }
+            else if(catname.equals("Spices")) {
+                holder.imageView.setImageResource(R.drawable.spices);
+            }
+            else if(catname.equals("Staples")) {
+                holder.imageView.setImageResource(R.drawable.staple);
+            }
             //Glide.with(context).load(productList.get(position).getProd_image()).into(holder.imageView);
             holder.cart.setOnClickListener(new View.OnClickListener() {
                 @Override

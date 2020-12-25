@@ -137,7 +137,7 @@ public class Purchase extends AppCompatActivity {
                             total_cost = quant*Integer.parseInt(schild.child("prod_price").getValue().toString());
                             Log.d("<<<<<<<<<<<<<<<<",String.valueOf(total_cost));
                             order.setCost(String.valueOf(total_cost));
-                            cost.setText(order.cost);
+                            cost.setText("Rs."+order.cost);
                             product.setText(schild.child("prod_name").getValue().toString());
                             prod_count -= quant;
                             //Log.d("^^^^^^^^^^^^^^^^^^^",String.valueOf(prod_count));

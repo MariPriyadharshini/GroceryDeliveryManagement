@@ -79,7 +79,62 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
             String desc = productList.get(position).getProd_desc()+" "+productList.get(position).getProd_size();
             holder.description.setText(desc);
             holder.price.setText(productList.get(position).getProd_price());
-            holder.imageView.setImageResource(R.drawable.beverages);
+            //holder.imageView.setImageResource(R.drawable.beverages);
+            String catname = productList.get(position).getCategory_name();
+            if(catname.equals("Vegetables")) {
+                holder.imageView.setImageResource(R.drawable.vegetables);
+            }
+            else if(catname.equals("Accessories")) {
+                holder.imageView.setImageResource(R.drawable.accesories);
+            }
+            else if(catname.equals("BabyCare")) {
+                holder.imageView.setImageResource(R.drawable.baby);
+            }
+            else if(catname.equals("Beverages")) {
+                holder.imageView.setImageResource(R.drawable.beverages);
+            }
+            else if(catname.equals("Biscuits")) {
+                holder.imageView.setImageResource(R.drawable.biscuits);
+            }
+            else if(catname.equals("Chocolates")) {
+                holder.imageView.setImageResource(R.drawable.chocolates);
+            }
+            else if(catname.equals("DairyProduct")) {
+                holder.imageView.setImageResource(R.drawable.items);
+            }
+            else if(catname.equals("Fruits")) {
+                holder.imageView.setImageResource(R.drawable.fruits);
+            }
+            else if(catname.equals("Grains")) {
+                holder.imageView.setImageResource(R.drawable.grainsandcereals);
+            }
+            else if(catname.equals("HairCare")) {
+                holder.imageView.setImageResource(R.drawable.hair);
+            }
+            else if(catname.equals("HouseHold")) {
+                holder.imageView.setImageResource(R.drawable.household);
+            }
+            else if(catname.equals("Oils")) {
+                holder.imageView.setImageResource(R.drawable.oil);
+            }
+            else if(catname.equals("OralCare")) {
+                holder.imageView.setImageResource(R.drawable.oralcare);
+            }
+            else if(catname.equals("PackedItems")) {
+                holder.imageView.setImageResource(R.drawable.maggie);
+            }
+            else if(catname.equals("SkinCare")) {
+                holder.imageView.setImageResource(R.drawable.skincare);
+            }
+            else if(catname.equals("Snacks")) {
+                holder.imageView.setImageResource(R.drawable.snacks);
+            }
+            else if(catname.equals("Spices")) {
+                holder.imageView.setImageResource(R.drawable.spices);
+            }
+            else if(catname.equals("Staples")) {
+                holder.imageView.setImageResource(R.drawable.staple);
+            }
             String cartKey= wishlist.get(position).getCart_key();
             //Glide.with(context).load(productList.get(position).getProd_image()).into(holder.imageView);
             holder.remove.setOnClickListener(new View.OnClickListener() {
