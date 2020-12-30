@@ -143,8 +143,8 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
                 public void onClick(View v) {
                     Intent intent = new Intent(context, Purchase.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("cartKey",cartKey);
-                    intent.putExtra("prodKey",prodKey);
+                    intent.putExtra("cartKey",cartlist.get(position).cart_key);
+                    intent.putExtra("prodKey",productList.get(position).key);
                     intent.putExtra("userName",usrname);
                     context.startActivity(intent);
                 }
@@ -153,7 +153,7 @@ public class CartRecycleViewAdapter extends RecyclerView.Adapter<CartRecycleView
                 @Override
                 public void onClick(View v) {
                     Log.d("#############333",cartlist.get(position).cart_key);
-                    myref.child(cartKey).removeValue();
+                    myref.child(cartlist.get(position).cart_key).removeValue();
                 }
             });
         }

@@ -40,6 +40,7 @@ public class Purchase extends AppCompatActivity {
     DatabaseReference myref = mydb.getReference("Orders");
     DatabaseReference rref = mydb.getReference("Products");
     DatabaseReference uref = mydb.getReference("Customers");
+    DatabaseReference cref = mydb.getReference("Cart");
     int total_cost,quant,prod_count;;
 
     @Override
@@ -158,6 +159,7 @@ public class Purchase extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             DialogBox d = new DialogBox("Order Placed Successfully");
                             d.show(getSupportFragmentManager(),"Placed");
+                            cref.child(cartkey).removeValue();
                             Toast.makeText(Purchase.this,"Order Placed Sucessfully",Toast.LENGTH_LONG).show();
                         }
                     });

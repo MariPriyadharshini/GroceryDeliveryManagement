@@ -17,6 +17,7 @@
         android:name=".Global"
         android:theme="@style/Theme.GroceryDelivery">
         <activity android:name=".Category"/>
+        <activity android:name=".PreferredRecycleView"/>
         <activity android:name=".AddProduct"/>
         <activity android:name=".AddCategory"/>
         <activity android:name=".Admin"/>

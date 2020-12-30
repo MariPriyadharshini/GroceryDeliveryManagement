@@ -1,8 +1,11 @@
 package com.example.grocerydelivery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +34,7 @@ public class WishlistRecycleView extends AppCompatActivity {
     DatabaseReference pref = mydb.getReference("Products");
     Context context;
     Global g;
+    ImageView home,cart,wish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,34 @@ public class WishlistRecycleView extends AppCompatActivity {
         clearAll();
         String phn = getIntent().getStringExtra("userName");
         Log.d("$$$$$$$$$$$$$$44",phn);
+        home = findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WishlistRecycleView.this, Category.class);
+                intent.putExtra("userName",phn);
+                startActivity(intent);
+            }
+        });
+        cart = findViewById(R.id.cartview1);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WishlistRecycleView.this, CartRecycleView.class);
+                intent.putExtra("userName",phn);
+                startActivity(intent);
+            }
+        });
+
+        wish = findViewById(R.id.wishlist1);
+        wish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(WishlistRecycleView.this, WishlistRecycleView.class);
+                intent.putExtra("userName",phn);
+                startActivity(intent);
+            }
+        });
         Query chk = myref.orderByChild("user_name").equalTo(phn);
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -18,18 +18,18 @@
 
     <ImageView
         android:id="@+id/cartview"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
         android:layout_marginStart="250dp"
-        android:src="@drawable/ic_baseline_child_friendly_24"
+        android:src="@drawable/cl"
         android:contentDescription="@string/vegetables" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="60dp"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
         android:id="@+id/wishlist"
         android:layout_marginStart="310dp"
-        android:src="@drawable/wish11"/>
+        android:src="@drawable/wl"/>
 
     <ScrollView
         android:id="@+id/scrollView"

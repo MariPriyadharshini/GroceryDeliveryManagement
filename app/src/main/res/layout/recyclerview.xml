@@ -11,9 +11,32 @@
     android:paddingTop="10dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/home"
+        android:layout_width="55dp"
+        android:layout_height="50dp"
+        android:src="@drawable/logo"
+        android:contentDescription="@string/vegetables" />
+
+    <ImageView
+        android:id="@+id/cartview1"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="250dp"
+        android:src="@drawable/cl"
+        android:contentDescription="@string/vegetables" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:id="@+id/wishlist1"
+        android:layout_marginStart="310dp"
+        android:src="@drawable/wl"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_height="match_parent"
         android:scrollbars="vertical" >
     </androidx.recyclerview.widget.RecyclerView>

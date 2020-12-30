@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -20,6 +21,8 @@ import com.example.grocerydelivery.Models.Product;
 //import com.example.grocerydelivery.Models.Wishlist;
 //import com.google.firebase.database.DataSnapshot;
 //import com.google.firebase.database.DatabaseError;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 //import com.google.firebase.database.Query;
@@ -35,6 +38,8 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
     FirebaseDatabase mydb = FirebaseDatabase.getInstance();
     DatabaseReference myref = mydb.getReference("Wishlist");
     DatabaseReference rref = mydb.getReference("Products");
+    DatabaseReference cref = mydb.getReference("Cart");
+    Cart c;
 
     public WishlistRecycleViewAdapter(Context ct, ArrayList<Product> productArrayList, ArrayList<Cart> wishlistArray, String phn){
         this.context = ct;
@@ -46,7 +51,7 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView name,description,price;
         ImageView imageView;
-        Button remove;
+        Button remove,add;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
@@ -55,6 +60,7 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
             price = itemView.findViewById(R.id.wishlistcost);
             imageView = itemView.findViewById(R.id.wishlistimage);
             remove = itemView.findViewById(R.id.removewishlist);
+            add  = itemView.findViewById(R.id.addcart);
         }
     }
 
@@ -142,6 +148,29 @@ public class WishlistRecycleViewAdapter extends RecyclerView.Adapter<WishlistRec
                 public void onClick(View v) {
                     Log.d("#############333",wishlist.get(position).cart_key);
                     myref.child(cartKey).removeValue();
+                }
+            });
+
+            holder.add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    c = new Cart();
+                    c.setUser_name(username);
+                    c.setP(productList.get(position).getKey());
+                    String key = c.getUser_name()+productList.get(position).getKey();
+                    c.setCart_key(key);
+                    cref.child(c.cart_key).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("**********","Inserted");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("*********","Fails");
+                        }
+                    });
+                    Toast.makeText(context,"Added to Cart",Toast.LENGTH_LONG).show();
                 }
             });
         }

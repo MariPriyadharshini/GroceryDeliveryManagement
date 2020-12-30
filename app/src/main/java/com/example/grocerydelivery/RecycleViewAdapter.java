@@ -79,6 +79,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
             String desc = productList.get(position).getProd_desc()+" "+productList.get(position).getProd_size();
             holder.description.setText(desc);
             holder.price.setText(productList.get(position).getProd_price());
+            catname = productList.get(position).category_name;
             //holder.imageView.setImageResource(R.drawable.beverages);
             if(catname.equals("Vegetables")) {
                 holder.imageView.setImageResource(R.drawable.vegetables);

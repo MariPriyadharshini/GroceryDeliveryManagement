@@ -99,7 +99,7 @@ public class Signin extends AppCompatActivity {
                         startActivity(intent);*/
                         if(role.equals("Customer")) {
                             Toast.makeText(Signin.this, "Logged Successfully", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Signin.this, Category.class);
+                            Intent intent = new Intent(Signin.this, PreferredRecycleView.class);
                             intent.putExtra("userName",phn);
                             startActivity(intent);
                         }

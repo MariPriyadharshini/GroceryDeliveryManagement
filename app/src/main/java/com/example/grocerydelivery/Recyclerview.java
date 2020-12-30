@@ -1,8 +1,11 @@
 package com.example.grocerydelivery;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,7 @@ public class Recyclerview extends AppCompatActivity {
     Context context;
     Global g;
     String usrname;
+    ImageView cart,wishlist,home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,34 @@ public class Recyclerview extends AppCompatActivity {
         g = (Global)getApplication();
         usrname = getIntent().getStringExtra("userName");
         String name = getIntent().getStringExtra("categoryName");
+        home = findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recyclerview.this, Category.class);
+                intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
+        cart = findViewById(R.id.cartview1);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recyclerview.this, CartRecycleView.class);
+                intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
+
+        wishlist = findViewById(R.id.wishlist1);
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recyclerview.this, WishlistRecycleView.class);
+                intent.putExtra("userName",usrname);
+                startActivity(intent);
+            }
+        });
         Query chk = myref.orderByChild("category_name").equalTo(name);
         chk.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
